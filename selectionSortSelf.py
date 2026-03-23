@@ -1,24 +1,26 @@
 #self implementation of selection sort
 
-#find smallest
-
 def findSmallest(arr):
+    #assume first element as smallest
     smallest = arr[0]
     smallest_index = 0
-    for i in range(1, len(arr)):
+
+    for i in range(len(arr)):
         if arr[i] < smallest:
             smallest = arr[i]
             smallest_index = i
     return smallest_index
 
-def selectionSort(arr):
-    newArr = []
-    copiedArr = list(arr)
+#selection sort
 
+def selectionsort(arr):
+    copiedArr = list(arr)
+    newArr = []
     for i in range(len(copiedArr)):
-        smallest = findSmallest(copiedArr)
-        newArr.append(copiedArr.pop(smallest))
+        small = findSmallest(copiedArr)
+        newArr.append(copiedArr.pop(small))
+
     return newArr
 
-print("Sorted Array: ", selectionSort([50, 3, 4, 6, 22, 4 ,66]))
+print("After applying selection sort: ", selectionsort([3,1,2,6,4]))
 
